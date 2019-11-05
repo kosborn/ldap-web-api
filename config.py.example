@@ -1,0 +1,6 @@
+ldap = dict(
+    domain = "example.com",
+    baseDN = "DC=example,DC=com",
+    username = "CN=SomeUsername,OU=DefintielyNotAnAdmin,DC=example,DC=com",
+    password = "ALongAndRandomPassword!"
+)
