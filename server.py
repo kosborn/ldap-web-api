@@ -33,9 +33,10 @@ def sid(sid):
     try:
         if not re.match('^S-\d-(\d+-){1,14}\d+$',sid):
             return "bad sid", 500
-        if conn.search(conf.ldap['baseDN'],'(objectSID=%s)' % sid, attributes=ldap3.ALL_ATTRIBUTES):
+        if conn.search(config.ldap['baseDN'],'(objectSID=%s)' % sid, attributes=ldap3.ALL_ATTRIBUTES):
             return conn.entries[0].entry_to_json()
-    except:
+    except Exception as e:
+        print(e)
         return "none found", 404
 
 
